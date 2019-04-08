@@ -1,0 +1,19 @@
+{
+    "name": "megvll/tools",
+    "description": "通用代码",
+    "type": "library",
+    "authors": [
+        {
+            "name": "megvll",
+            "email": "morin@megvll.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4":{
+            "megvll\\php\\": "src/megvll/php"
+        }
+    }
+}
