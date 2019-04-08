@@ -237,4 +237,23 @@ class Mx {
 		$week = ['一', '二', '三', '四', '五', '六', '日'];
 		return $week[date('N', $timestamp) - 1];
 	}
+
+	// 获取泛域名
+	static function fan_host() {
+		$R = request();
+		$domain = parse_url($R->host());
+		// dump($domain);exit;
+		if (isset($domain['path'])) {
+			$arr = explode('.', $domain['path']);
+		} else {
+			$arr = explode('.', $domain['host']);
+		}
+		$index = count($arr);
+		if ($index > 1) {
+			$servername = '.' . $arr[$index - 2] . '.' . $arr[$index - 1];
+		} else {
+			$servername = 'localhost';
+		}
+		return $servername;
+	}
 }
