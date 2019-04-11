@@ -256,4 +256,24 @@ class Mx {
 		}
 		return $servername;
 	}
+
+	/**
+	 * 数字序列转字母序列,大写字母ascii码从65~106
+	 * @param $int
+	 * @return string|bool
+	 */
+	static function int_to_chr($int) {
+		if (!is_int($int) || $int <= 0) {
+			return false;
+		}
+
+		$str = '';
+		if ($int > 26) {
+			$str .= int_to_chr((int) floor($int / 26));
+		}
+		if ($int % 26 == 0) {
+			return $str . chr(26 + 64);
+		}
+		return $str . chr($int % 26 + 64);
+	}
 }
